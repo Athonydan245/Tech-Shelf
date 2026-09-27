@@ -18,6 +18,7 @@ export default function Footer() {
                     <ul className="space-y-2">
                         <li>Email: support@techshelf.vn</li>
                         <li>Hotline: 09xx xxx xxx</li>
+                        <li>Địa chỉ: Cần Thơ, Việt Nam</li>
                     </ul>
                 </div>
             </div>
