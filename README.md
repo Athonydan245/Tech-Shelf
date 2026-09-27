@@ -63,25 +63,25 @@ techshelf-react/
 
 Clone repository về máy:
 
-
 git clone [https://github.com/Tên_Tài_Khoản_Của_Bạn/techshelf-react.git](https://github.com/Tên_Tài_Khoản_Của_Bạn/techshelf-react.git)
 cd techshelf-react
+
 Cài đặt các gói thư viện (Dependencies):
 
-
 npm install
+
 Khởi động môi trường phát triển:
 
-
 npm run dev
+
 Truy cập đường dẫn hiển thị trên terminal (thường là http://localhost:5173) để trải nghiệm.
 
 👤 Thông tin tác giả & Bản quyền
+
 Họ và tên: Nguyễn Quang Huy
 
 Chuyên ngành: Software Engineering
 
 Trường: FPT University (FPT University Can Tho)
-
 
 © 2026 TECHSHELF Library. All rights reserved. Designed by Nguyễn Quang Huy.
