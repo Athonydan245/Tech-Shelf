@@ -36,7 +36,7 @@ export default function Footer({ lang }: { lang: 'vi' | 'en' }) {
                 </div>
             </div>
             <div className="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-white/5 text-center text-xs text-gray-500">
-                Designed with React, TypeScript, Vite & Tailwind CSS.
+                Designed with Nguyen Quang Huy.
             </div>
         </footer>
     );
