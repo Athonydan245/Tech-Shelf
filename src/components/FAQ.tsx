@@ -4,7 +4,7 @@ const faqsData = {
     vi: [
         {
             q: "Tài liệu này có thực sự miễn phí 100% không hay có phí ẩn?",
-            a: "Vâng, toàn bộ tài liệu trong bộ Digital Starter Kit đều hoàn toàn miễn phí. TECHSHELF là một dự án phi lợi nhuận hướng tới cộng đồng, với mong muốn chia sẻ kiến thức chất lượng cao, giúp các bạn sinh viên và người đi làm trong lĩnh vực Công nghệ & Marketing dễ dàng tiếp cận nguồn tài liệu chuẩn quốc tế. Chúng tôi cam kết không có bất kỳ khoản phí ẩn hay yêu cầu nhập thẻ tín dụng nào trong suốt quá trình sử dụng."
+            a: "Toàn bộ tài liệu trong bộ Digital Starter Kit đều hoàn toàn miễn phí. TECHSHELF là một dự án phi lợi nhuận hướng tới cộng đồng, với mong muốn chia sẻ kiến thức chất lượng cao, giúp các bạn sinh viên và người đi làm trong lĩnh vực Công nghệ & Marketing dễ dàng tiếp cận nguồn tài liệu chuẩn quốc tế. Chúng tôi cam kết không có bất kỳ khoản phí ẩn hay yêu cầu nhập thẻ tín dụng nào trong suốt quá trình sử dụng."
         },
         {
             q: "Thông tin cá nhân (Email, Số điện thoại) của tôi có được bảo mật an toàn?",
