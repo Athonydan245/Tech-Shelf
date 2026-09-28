@@ -1,14 +1,27 @@
 import { useState, useEffect } from 'react';
 
+interface LeadData {
+    date: string;
+    fullname: string;
+    email: string;
+    phone: string;
+    interest: string;
+    source: string;
+}
+
 export default function Analytics() {
     const [visitors, setVisitors] = useState(5240);
     const [clicks, setClicks] = useState(3144);
     const [formOpens, setFormOpens] = useState(1572);
     const [leads, setLeads] = useState(482);
+    const [realLeadsCount, setRealLeadsCount] = useState(0); // Dùng để hiển thị số lượng lead thật
 
     const conversionRate = ((leads / visitors) * 100).toFixed(1);
 
     useEffect(() => {
+        const savedLeads: LeadData[] = JSON.parse(localStorage.getItem('techshelf_leads') || '[]');
+        setRealLeadsCount(savedLeads.length); // Cập nhật số lượng lead thật
+
         const interval = setInterval(() => {
             const newVisitors = Math.floor(Math.random() * 3) + 1;
             setVisitors(prev => prev + newVisitors);
@@ -20,50 +33,80 @@ export default function Analytics() {
         return () => clearInterval(interval);
     }, []);
 
+    const exportCSV = () => {
+        const savedLeads: LeadData[] = JSON.parse(localStorage.getItem('techshelf_leads') || '[]');
+        if (savedLeads.length === 0) return alert('Chưa có ai đăng ký form!');
+
+        let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+        csvContent += "Ngày đăng ký,Họ và Tên,Email,Số điện thoại,Lĩnh vực quan tâm,Nguồn UTM\n";
+
+        savedLeads.forEach((lead) => {
+            csvContent += `"${lead.date}","${lead.fullname}","${lead.email}","${lead.phone}","${lead.interest}","${lead.source}"\n`;
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "Danh_sach_khach_hang_TECHSHELF.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <div className="min-h-screen bg-[#080B12] text-white p-8 font-sans selection:bg-blue-500/30">
             <div className="max-w-7xl mx-auto">
+
+                {/* Phần Header & Nút Tải Data (Sử dụng realLeadsCount ở đây) */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                     <div>
                         <h1 className="text-3xl font-bold flex items-center gap-3">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">TECHSHELF</span>
                             Digital Marketing Dashboard
                         </h1>
-                        <p className="text-gray-400 mt-2">Dữ liệu minh họa phục vụ bài tập Digital Marketing (Looker Studio Demo)</p>
+                        <p className="text-gray-400 mt-2">Dữ liệu minh họa phục vụ bài tập Digital Marketing</p>
                     </div>
-                    <div className="bg-green-500/10 border border-green-500/30 px-4 py-2 rounded-lg text-sm text-green-400 flex items-center gap-2 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        Live Tracking Active
+                    <div className="flex flex-wrap gap-4">
+                        <button
+                            onClick={exportCSV}
+                            className="bg-blue-600 hover:bg-blue-500 px-5 py-2.5 rounded-lg font-bold shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all flex items-center gap-2"
+                        >
+                            {/* Sử dụng biến realLeadsCount để hiển thị */}
+                            📥 Tải Data Leads ({realLeadsCount})
+                        </button>
+                        <div className="bg-green-500/10 border border-green-500/30 px-4 py-2 rounded-lg text-sm text-green-400 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Live Tracking Active
+                        </div>
                     </div>
                 </div>
 
-                {/* KPI Cards */}
+                {/* Thẻ KPI và Biểu đồ giữ nguyên... */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-default">
+                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all cursor-default">
                         <p className="text-gray-400 text-sm mb-2">Total Visitors</p>
                         <h3 className="text-4xl font-bold text-white transition-all">{visitors.toLocaleString()}</h3>
                         <p className="text-green-500 text-sm mt-2 flex items-center gap-1">↑ Đang tăng</p>
                     </div>
-                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-default">
+                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all cursor-default">
                         <p className="text-gray-400 text-sm mb-2">Leads Generated</p>
                         <h3 className="text-4xl font-bold text-blue-400 transition-all">{leads.toLocaleString()}</h3>
                         <p className="text-green-500 text-sm mt-2 flex items-center gap-1">↑ Cập nhật liên tục</p>
                     </div>
-                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-default">
+                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all cursor-default">
                         <p className="text-gray-400 text-sm mb-2">Conversion Rate</p>
                         <h3 className="text-4xl font-bold text-white transition-all">{conversionRate}%</h3>
                         <p className="text-green-500 text-sm mt-2 flex items-center gap-1">↑ 1.1% so với tháng trước</p>
                     </div>
-                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-default">
+                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all cursor-default">
                         <p className="text-gray-400 text-sm mb-2">Cost Per Lead (Mock)</p>
                         <h3 className="text-4xl font-bold text-white">12,500đ</h3>
                         <p className="text-green-500 text-sm mt-2 flex items-center gap-1">↓ Giảm 5.0%</p>
                     </div>
                 </div>
 
-                {/* Charts Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:border-white/20 transition-colors duration-300">
+                    {/* Biểu đồ Funnel */}
+                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:border-white/20 transition-colors">
                         <h3 className="text-xl font-bold mb-6 text-white">Conversion Funnel</h3>
                         <div className="space-y-4">
                             <div className="relative h-12 bg-[#080B12] rounded-lg overflow-hidden flex items-center px-4 border border-white/5">
@@ -88,20 +131,20 @@ export default function Analytics() {
                             </div>
                         </div>
                     </div>
-
-                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:border-white/20 transition-colors duration-300">
+                    {/* Biểu đồ Traffic */}
+                    <div className="bg-[#0B1020] p-6 rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:border-white/20 transition-colors">
                         <h3 className="text-xl font-bold mb-6 text-white">Traffic by Channel</h3>
                         <ul className="space-y-5 text-sm text-gray-300">
                             <li className="flex justify-between items-center bg-[#080B12] p-3 rounded-lg border border-white/5">
-                                <span className="flex items-center gap-3"><div className="w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div> Facebook Ads</span>
+                                <span className="flex items-center gap-3"><div className="w-3 h-3 bg-blue-500 rounded-full"></div> Facebook Ads</span>
                                 <span className="font-bold text-white">45%</span>
                             </li>
                             <li className="flex justify-between items-center bg-[#080B12] p-3 rounded-lg border border-white/5">
-                                <span className="flex items-center gap-3"><div className="w-3 h-3 bg-purple-500 rounded-full shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div> Organic Search (SEO)</span>
+                                <span className="flex items-center gap-3"><div className="w-3 h-3 bg-purple-500 rounded-full"></div> Organic Search (SEO)</span>
                                 <span className="font-bold text-white">30%</span>
                             </li>
                             <li className="flex justify-between items-center bg-[#080B12] p-3 rounded-lg border border-white/5">
-                                <span className="flex items-center gap-3"><div className="w-3 h-3 bg-cyan-500 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div> Direct</span>
+                                <span className="flex items-center gap-3"><div className="w-3 h-3 bg-cyan-500 rounded-full"></div> Direct</span>
                                 <span className="font-bold text-white">15%</span>
                             </li>
                             <li className="flex justify-between items-center bg-[#080B12] p-3 rounded-lg border border-white/5">

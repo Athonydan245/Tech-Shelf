@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+
+html.light-mode {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: #f7f4ed;
+    /* Đảo ngược của #080B12 */
+}
+
+
+html.light-mode img,
+html.light-mode button[class*="bg-blue"],
+html.light-mode div[class*="bg-gradient"] {
+    filter: invert(1) hue-rotate(180deg);
+}
