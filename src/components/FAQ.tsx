@@ -22,7 +22,7 @@ const faqsData = {
     en: [
         {
             q: "Are these resources truly 100% free with no hidden fees?",
-            a: "Yes, all resources in the Digital Starter Kit are 100% free. TECHSHELF is a community-driven, non-profit project aimed at sharing high-quality knowledge, helping students and professionals in Tech & Marketing easily access international standard resources. We guarantee there are no hidden fees or credit card requirements during your entire experience with us."
+            a: "All resources in the Digital Starter Kit are 100% free. TECHSHELF is a community-driven, non-profit project aimed at sharing high-quality knowledge, helping students and professionals in Tech & Marketing easily access international standard resources. We guarantee there are no hidden fees or credit card requirements during your entire experience with us."
         },
         {
             q: "Is my personal information (Email, Phone) securely protected?",
