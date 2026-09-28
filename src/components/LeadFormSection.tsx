@@ -22,7 +22,6 @@ export default function LeadFormSection() {
 
         setPhoneError('');
 
-        // NGHIỆP VỤ LƯU DỮ LIỆU (Lưu vào LocalStorage của trình duyệt)
         const newLead = {
             fullname,
             email,

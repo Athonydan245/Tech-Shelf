@@ -44,7 +44,6 @@ export default function FAQ() {
                                 <span className={`text-blue-500 transition-transform duration-300 ml-4 ${openIndex === index ? 'rotate-180' : ''}`}>▼</span>
                             </button>
 
-                            {/* Thêm hiệu ứng mở mượt mà cho câu trả lời */}
                             <div
                                 className={`transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                             >
