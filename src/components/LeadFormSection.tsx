@@ -118,12 +118,12 @@ export default function LeadFormSection({ lang }: { lang: 'vi' | 'en' }) {
 
                         <div>
                             <label className="block text-sm font-medium text-gray-300 mb-2">{data.labels.interest} <span className="text-red-500">*</span></label>
-                            <select required name="interest" className="w-full p-4 bg-[#080B12] border border-white/10 rounded-xl text-white outline-none focus:border-blue-500 focus:bg-white/5 transition-all appearance-none cursor-pointer">
-                                <option value="" className="text-gray-500">{data.labels.select}</option>
-                                <option value="Digital Marketing">Digital Marketing</option>
-                                <option value="Data Analytics">Data Analytics</option>
-                                <option value="AI">AI & Machine Learning</option>
-                                <option value="Web">Web Development</option>
+                            <select required name="interest" className="w-full p-4 bg-[#080B12] border border-white/10 rounded-xl text-white outline-none focus:border-blue-500 focus:bg-white/5 transition-all cursor-pointer">
+                                <option value="" className="bg-[#0B1020] text-gray-400">{data.labels.select}</option>
+                                <option value="Digital Marketing" className="bg-[#0B1020] text-white py-2">Digital Marketing</option>
+                                <option value="Data Analytics" className="bg-[#0B1020] text-white py-2">Data Analytics</option>
+                                <option value="AI" className="bg-[#0B1020] text-white py-2">AI & Machine Learning</option>
+                                <option value="Web" className="bg-[#0B1020] text-white py-2">Web Development</option>
                             </select>
                         </div>
 
