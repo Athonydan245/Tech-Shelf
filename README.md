@@ -36,6 +36,8 @@
 
 ## ⚙️ Hướng Dẫn Cài Đặt (Local Development)
 
+# CÁCH 1: CLONE GIT VỀ MÁY 
+
 ```bash
 # 1. Clone dự án về máy tính
 git clone [https://github.com/Tên_Tài_Khoản_Của_Bạn/techshelf-react.git](https://github.com/Tên_Tài_Khoản_Của_Bạn/techshelf-react.git)
@@ -47,6 +49,49 @@ npm install
 # 3. Chạy Server môi trường Dev
 npm run dev
 # Mở http://localhost:5173 trên trình duyệt để sử dụng.
+
+# CÁCH 2: CÀI ĐẶT CÔNG CỤ
+
+### 1. Cài đặt Node.js (Bắt buộc)
+*Đây là "động cơ" giúp trang web hoạt động trên máy tính của bạn.*
+* **Bước 1:** Truy cập trang web chính thức: [https://nodejs.org/](https://nodejs.org/)
+* **Bước 2:** Bấm tải về phiên bản có chữ **LTS** (Recommended for most users) - thường là nút to màu xanh lá cây.
+* **Bước 3:** Mở file vừa tải về, cứ bấm **Next**, **I Agree** và **Install** cho đến khi hoàn tất (không cần chỉnh sửa gì thêm).
+
+### 2. Cài đặt Visual Studio Code (Khuyên dùng)
+*Đây là công cụ để chúng ta mở thư mục dự án và gõ lệnh khởi chạy một cách dễ nhất.*
+* **Bước 1:** Truy cập: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+* **Bước 2:** Bấm nút **Download** màu xanh.
+* **Bước 3:** Cài đặt tương tự như Node.js (cứ bấm Next và Install).
+
+---
+
+## PHẦN 2: CÁC BƯỚC MỞ VÀ CHẠY DỰ ÁN
+
+Sau khi đã cài xong 2 phần mềm trên, chúng ta bắt đầu chạy web:
+
+### Bước 1: Mở dự án trong Visual Studio Code (VS Code)
+1. Giải nén thư mục chứa mã nguồn dự án TechShelf (nếu nó đang là file `.zip`).
+2. Mở phần mềm **Visual Studio Code** bạn vừa cài đặt.
+3. Kéo và thả toàn bộ **thư mục dự án TechShelf** vào giữa màn hình của VS Code (Hoặc trên thanh menu, chọn `File` -> `Open Folder...` và chọn thư mục dự án).
+
+### Bước 2: Mở bảng điều khiển (Terminal)
+1. Trên thanh menu trên cùng của VS Code, chọn **Terminal** -> **New Terminal**.
+2. Bạn sẽ thấy một bảng nhỏ hiện lên ở phía dưới màn hình. Đây là nơi chúng ta sẽ gõ các lệnh khởi chạy.
+
+### Bước 3: Tải các dữ liệu cần thiết (Cài đặt thư viện)
+Để web chạy được, nó cần tải về một số "nguyên liệu" phụ trợ. 
+* Tại bảng Terminal vừa mở, bạn gõ dòng lệnh sau và nhấn **Enter**:
+
+  ```bash
+  npm install
+
+  Khi lệnh trên đã xong, bạn tiếp tục gõ dòng lệnh này và nhấn Enter:
+
+  ```bash
+  npm run dev
+
+  Bạn sẽ thấy trên màn hình Terminal hiện ra một đường link màu xanh (thường là http://localhost:5173/).
 
 Tác giả / Sinh viên thực hiện: Nguyễn Quang Huy
 
