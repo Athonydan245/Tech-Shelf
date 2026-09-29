@@ -53,13 +53,13 @@ npm run dev
 ## CÁCH 2: CÀI ĐẶT CÔNG CỤ
 
 ### 1. Cài đặt Node.js (Bắt buộc)
-*Đây là "động cơ" giúp trang web hoạt động trên máy tính của bạn.*
+
 * **Bước 1:** Truy cập trang web chính thức: [https://nodejs.org/](https://nodejs.org/)
 * **Bước 2:** Bấm tải về phiên bản có chữ **LTS** (Recommended for most users) - thường là nút to màu xanh lá cây.
 * **Bước 3:** Mở file vừa tải về, cứ bấm **Next**, **I Agree** và **Install** cho đến khi hoàn tất (không cần chỉnh sửa gì thêm).
 
-### 2. Cài đặt Visual Studio Code (Khuyên dùng)
-*Đây là công cụ để chúng ta mở thư mục dự án và gõ lệnh khởi chạy một cách dễ nhất.*
+### 2. Cài đặt Visual Studio Code 
+
 * **Bước 1:** Truy cập: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 * **Bước 2:** Bấm nút **Download** màu xanh.
 * **Bước 3:** Cài đặt tương tự như Node.js (cứ bấm Next và Install).
