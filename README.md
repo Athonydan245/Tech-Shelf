@@ -83,12 +83,10 @@ Sau khi đã cài xong 2 phần mềm trên, chúng ta bắt đầu chạy web:
 Để web chạy được, nó cần tải về một số "nguyên liệu" phụ trợ. 
 * Tại bảng Terminal vừa mở, bạn gõ dòng lệnh sau và nhấn **Enter**:
 
-  ```bash
   npm install
 
   Khi lệnh trên đã xong, bạn tiếp tục gõ dòng lệnh này và nhấn Enter:
 
-  ```bash
   npm run dev
 
   Bạn sẽ thấy trên màn hình Terminal hiện ra một đường link màu xanh (thường là http://localhost:5173/).
