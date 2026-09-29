@@ -36,7 +36,7 @@
 
 ## ⚙️ Hướng Dẫn Cài Đặt (Local Development)
 
-# CÁCH 1: CLONE GIT VỀ MÁY 
+CÁCH 1: CLONE GIT VỀ MÁY 
 
 ```bash
 # 1. Clone dự án về máy tính
@@ -50,7 +50,7 @@ npm install
 npm run dev
 # Mở http://localhost:5173 trên trình duyệt để sử dụng.
 
-# CÁCH 2: CÀI ĐẶT CÔNG CỤ
+## CÁCH 2: CÀI ĐẶT CÔNG CỤ
 
 ### 1. Cài đặt Node.js (Bắt buộc)
 *Đây là "động cơ" giúp trang web hoạt động trên máy tính của bạn.*
